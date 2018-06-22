@@ -9,13 +9,10 @@
 <body>
   <h1>Application html file test paul (this is comming from main index file)</h1>
   
-  <% flash.each do |name, msg| %>
-    <ul>
-      <li><%= msg %></li>
-    </ul>
-  <% end %>
+  <!--needs to have layouts/ or it will look for the partial in articles-->
+  <%= render 'layouts/messages' %>
   
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
