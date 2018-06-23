@@ -1,2 +1,20 @@
+// SCSS Syntax
+$navbar-default-bg: #08088A;
+
+//ex: for #logo: bold
+$test: bold;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// CSS
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  // font-weight: bold;
+  font-weight: $test;
+}
