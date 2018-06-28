@@ -2,18 +2,18 @@
 
 <% if @articles %>
 
-<div align="center">
-  <%= will_paginate %>
-</div>
-
-<%= render 'article', obj: @articles %>
-
-<div align="center">
-  <%= will_paginate %>
-</div>
+  <div align="center">
+    <%= will_paginate %>
+  </div>
+  
+  <%= render 'article', obj: @articles %>
+  
+  <div align="center">
+    <%= will_paginate %>
+  </div>
 
 <% else %>
 
-<h1>nothing here</h1>
+<h1><%= "Nothing Here" %></h1>
 
 <% end %>
