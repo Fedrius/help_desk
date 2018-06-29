@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   
   def index
     #instance variable can be anything. 'articles' in easier right now. use this variable in embedded ruby in html.erb files
-    @articles = Article.paginate(page: params[:page], per_page: 2)
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
   
   def new

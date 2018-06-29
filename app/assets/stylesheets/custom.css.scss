@@ -1,5 +1,5 @@
 // SCSS Syntax
-$navbar-default-bg: #08088A;
+$navbar-default-bg: black;
 
 //ex: for #logo: bold
 $test: bold;
@@ -8,6 +8,18 @@ $test: bold;
 @import "bootstrap";
 
 // CSS
+
+// **********************************************
+// Navbar
+//***********************************************
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: orange;
+}
 
 #logo {
   float: left;

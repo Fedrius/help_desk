@@ -6,21 +6,26 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
   
+  get 'help', to: 'pages#help'
+  
+  resources :tickets
+  
   # /signup route goes to users controller then to new. new will be the html view file
   get 'signup', to: 'users#new'
 
   # provides several pre-build routes under articles. do 'rake routes'
   resources :articles
   
-  get 'signup', to: 'users#new'
   # because we already made the new route
   resources :users, except: [:new]
 
+  # Login and logout
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-
+  
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
