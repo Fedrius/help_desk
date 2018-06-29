@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # one user has many articles
-  has_many :articles
+  has_many :articles, dependent: :destroy
   
   #before user hits db, email will be downcased
   before_save {self.email = email.downcase }

@@ -2,6 +2,10 @@
 class ArticlesController < ApplicationController
   # only these 4 methods will call set_article which is @article = Article.find(params[:id])
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  # require any user to be logged in
+  before_action :require_user, except: [:index, :show]
+  # require same user for only these routes
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index
     #instance variable can be anything. 'articles' in easier right now. use this variable in embedded ruby in html.erb files
@@ -20,7 +24,7 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect
     @article = Article.new(article_params) # creates the new article and saves
     
-    @article.user = User.first
+    @article.user = current_user
     
     if @article.save
       flash[:notice] = "Article was successfully created"
@@ -60,6 +64,13 @@ class ArticlesController < ApplicationController
     def article_params
       # from params hash, allow title and description.
       params.require(:article).permit(:title, :description)
+    end
+    
+    def require_same_user
+      if current_user != @article.user and !current_user.admin?
+        flash[:danger]  = "you can only edit or delete your own articles"
+        redirect_to root_path
+      end
     end
 
 end

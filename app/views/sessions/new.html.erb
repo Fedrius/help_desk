@@ -4,13 +4,13 @@
 
 <div class="form-group">
 
-<div class="control-label col-sm-2">
+<div class="control-label col-sm-2 col-md-offset-2">
 
 <%= f.label :email %>
 
 </div>
 
-<div class="col-sm-8">
+<div class="col-sm-8 col-md-4 ">
 
 <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
 
@@ -20,13 +20,13 @@
 
 <div class="form-group">
 
-<div class="control-label col-sm-2">
+<div class="control-label col-sm-2 col-md-offset-2">
 
 <%= f.label :password %>
 
 </div>
 
-<div class="col-sm-8">
+<div class="col-sm-8 col-md-4 ">
 
 <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
 
@@ -36,7 +36,7 @@
 
 <div class="form-group">
 
-<div class="col-sm-offset-2 col-sm-10">
+<div class="col-sm-offset-4 col-sm-6">
 
 <%= f.submit "Log in", class: 'btn btn-primary btn-lg' %>
 
