@@ -14,4 +14,12 @@ class PagesController < ApplicationController
     
   end
   
+  def admin
+    
+  end
+  
+  def help_desk
+    
+  end
+  
 end
