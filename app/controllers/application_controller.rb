@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  # these will be helper methods
+  # helper methods defined here to for controller access AND views access
   helper_method :current_user, :logged_in?
   
   def current_user
@@ -24,4 +24,17 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+  
+  
+  def admin_restriction
+    if !logged_in?
+      flash[:danger] = "Restricted Access"
+      redirect_to root_path
+    elsif !current_user.admin || !logged_in?
+      flash[:danger] = "Restricted Access"
+      redirect_to root_path
+    end
+    
+  end
+  
 end
