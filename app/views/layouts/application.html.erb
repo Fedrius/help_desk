@@ -6,7 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<% if logged_in? and current_user.admin? %>
+  <body class="decreaseBodyWidith">
+<% else %>
+  <body>
+<% end %>
   <%= render 'layouts/navigation' %>
   
   <!--needs to have layouts/ or it will look for the partial in articles-->
