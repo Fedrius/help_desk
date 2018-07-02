@@ -1,5 +1,5 @@
 console.log("JS works!");
 
-$(document).ready(()=>{
+$(document).ready(function(){
   console.log("jquery works!")
 })
