@@ -4,8 +4,8 @@ class CreateTickets < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :type
-      t.string :priority
-      t.string :status
+      t.string :priority, default: 'low'
+      t.string :status, default: 'open'
       t.timestamps
     end
   end

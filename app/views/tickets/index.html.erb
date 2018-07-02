@@ -1,0 +1,10 @@
+<h2 align="center">Your Tickets</h2>
+
+<h2>Open</h2>
+  <% @tickets.each do |ticket| %>
+    <div class="article-title">
+      <%= link_to ticket.title, ticket_path(ticket) %>
+    </div>
+  <% end %>
+
+<h2>Resolved</h2>

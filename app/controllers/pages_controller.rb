@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   end
   
   def help_desk
-    
+    @tickets = Ticket.all
   end
   
 end
