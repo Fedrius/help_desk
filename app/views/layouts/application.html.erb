@@ -14,10 +14,11 @@
   <%= render 'layouts/navigation' %>
   
   <!--needs to have layouts/ or it will look for the partial in articles-->
-  <%= render 'layouts/messages' %>
-  
+ 
   <!--This is the wrapper for all views-->
   <div class="container">
+    <%= render 'layouts/messages' %>
+  
     <%= yield %>
   </div>
   

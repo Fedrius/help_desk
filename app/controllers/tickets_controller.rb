@@ -16,8 +16,8 @@ class TicketsController < ApplicationController
   end
   
   # this would be to go to the edit page
-  # def edit
-  # end
+  def edit
+  end
   
   def create
     @ticket = Ticket.new(ticket_params)
@@ -33,13 +33,21 @@ class TicketsController < ApplicationController
     end
   end
   
-  # def update
-  # end
+  def update
+    @ticket.status = "resolved"
+    
+    if @ticket.update(ticket_params)
+      flash[:notice] = "Ticket has been resolved"
+      redirect_to test_help_desk_path
+    else
+      render 'edit'
+    end
+  end
   
   def destroy
     @ticket.destroy
     flash[:notice] = "ticket was successfully destroyed"
-    redirect_to tickets_path
+    redirect_to test_help_desk_path
   end
   
   def show
@@ -49,7 +57,7 @@ class TicketsController < ApplicationController
   private
     # whitelist the input
     def ticket_params
-      params.require(:ticket).permit(:title,:description)
+      params.require(:ticket).permit(:title,:description, :response)
     end
     
     
