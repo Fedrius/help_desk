@@ -48,7 +48,7 @@
                 
                 <% if logged_in? and current_user.admin? %> 
                   <li><%= link_to "Admin Home", test_admin_path %></li>
-                  <li><%= link_to "Admin Help Desk", test_help_desk_path %></li>
+                  <li><%= link_to "Admin Help Desk", test_help_desk_path, method: :get %></li>
                   <li role="separator" class="divider"></li>
                 <% end %>
                 

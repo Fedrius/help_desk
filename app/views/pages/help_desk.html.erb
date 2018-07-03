@@ -4,29 +4,29 @@
 
 <table class="table-bordered">
   <tr>
-    <th>User ID</th>
+    <th></th>
+    <th>Username</th>
     <th>Title</th>
     <th>Description</th>  
     <th>Type</th>
     <th>Priority</th>  
     <th>Status</th>
     <th>Created At</th>
-    
     <!--<th></th>-->
     <!--<th>Single Column</th>-->
     <!--<th colspan="2">Double Column</th>-->
   </tr>
-  
+    
   <% @tickets.each do |ticket| %>
     <tr>
-      <td><%= ticket.user_id %></td>
+      <td><button class="btn btn-success" id="viewTicketModal">View</button></td>
+      <td><%= ticket.user.username %></td> 
       <td><%= link_to ticket.title, ticket_path(ticket) %></td>
       <td><%= ticket.description.truncate(20) %></td>
       <td><%= ticket.type %></td>
       <td><%= ticket.priority %></td>
       <td><%= ticket.status %></td>
       <td><%= ticket.created_at %></td>
-      
       <!--<td></td>-->
       <!--<td>Column One</td>-->
       <!--<td>Column Two</td>-->

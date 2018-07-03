@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   # helper methods defined here to for controller access AND views access
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :sort_column, :sort_direction
   
   def current_user
     # if there is a current already, do nothing. else find the user in db
@@ -35,6 +35,16 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
     
+  end
+  
+  
+  private
+  def sort_column
+    params[:sort] || "name"
+  end
+  
+  def sort_direction
+    params[:direction] || "asc"
   end
   
 end

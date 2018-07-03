@@ -1,10 +1,23 @@
 <h2 align="center">Your Tickets</h2>
 
 <h2>Open</h2>
-  <% @tickets.each do |ticket| %>
-    <div class="article-title">
-      <%= link_to ticket.title, ticket_path(ticket) %>
-    </div>
+  <table class="table-bordered">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>  
+    <th>Type</th>
+    <th>Status</th>
+    <th>Created At</th>
+  </tr>
+  <% @user_tickets.each do |ticket| %>
+    <tr>
+      <td><%= link_to ticket.title, ticket_path(ticket) %></td>
+      <td><%= ticket.description.truncate(20) %></td>
+      <td><%= ticket.type %></td>
+      <td><%= ticket.status %></td>
+      <td><%= ticket.created_at %></td>
+    </tr>
   <% end %>
+</table>
 
 <h2>Resolved</h2>

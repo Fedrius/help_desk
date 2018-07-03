@@ -23,10 +23,7 @@
   
   <%= render 'layouts/footer' %>
   
-  <div class="container">
-    <h2>Debugger</h2>
-    <%= debug(params) if Rails.env.development? %>
-  </div>
+  <%= debug(params) if Rails.env.development? %>
   
 </body>
 </html>
