@@ -41,6 +41,8 @@
     <h2>Open</h2>
     <table class="table-bordered">
     <tr>
+      <th>Sort By</th>
+      <th>Username</th>
       <th>Title</th>
       <th>Description</th>  
       <th>Type</th>
@@ -51,7 +53,9 @@
     <% @tickets.reverse_each do |ticket| %>
       <% if ticket.status == "open" %>
       <tr>
-        <td><%= link_to ticket.title, ticket_path(ticket) %></td>
+        <td><%= link_to "View", edit_ticket_path(ticket), class: "btn btn-success"  %></td>
+        <td><%= ticket.user.username %></td> 
+        <td><%= ticket.title %></td>
         <td><%= ticket.description.truncate(20) %></td>
         <td><%= ticket.type %></td>
         <td><%= ticket.status %></td>
@@ -69,6 +73,8 @@
 
     <table class="table-bordered">
     <tr>
+      <th>Sort By</th>
+      <th>Username</th>
       <th>Title</th>
       <th>Description</th>  
       <th>Type</th>
@@ -78,8 +84,10 @@
     
     <% @tickets.reverse_each do |ticket| %>
       <% if ticket.status == "resolved" %>
-      <tr>
-        <td><%= link_to ticket.title, ticket_path(ticket) %></td>
+      <tr>      
+        <td><%= link_to "View", edit_ticket_path(ticket), class: "btn btn-success"  %></td>
+        <td><%= ticket.user.username %></td> 
+        <td><%= ticket.title %></td>
         <td><%= ticket.description.truncate(20) %></td>
         <td><%= ticket.type %></td>
         <td><%= ticket.status %></td>
