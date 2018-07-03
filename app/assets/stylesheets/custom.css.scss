@@ -128,15 +128,15 @@ padding-left: 0;
 }
 
 .sidenav a {
-    padding: 6px 8px 6px 16px;
+    padding: 6px 0px 6px 0px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #818181;
     display: block;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: orange;
 }
 
 @media screen and (max-height: 450px) {

@@ -66,7 +66,9 @@
 
 <% if logged_in? and current_user.admin? %>
 <div class="sidenav">
-  <a href="#about">Test</a>
+  <h3 class="text-center" style="color: white">ADMIN</h3>
+  <%= link_to "Home", test_admin_path, class: "text-center" %>
+  <%= link_to "Help Desk", test_help_desk_path, class: "text-center", method: :get %>
   <!--<a href="#services">Services</a>-->
   <!--<a href="#clients">Clients</a>-->
   <!--<a href="#contact">Contact</a>-->

@@ -1,3 +1,21 @@
 <h2 align="center">Title: <%= @ticket.title %></h2>
 
 <%= render 'ticket', obj: @ticket %>
+
+<div class='row'>
+  <div class='col-md-10 col-md-offset-2'>
+    <h3>Status: 
+      <span class="<%= @ticket.status == "open" ? "bg-danger" : "bg-success" %>" style="padding: 5px; border-radius: 10px">
+        <%= @ticket.status %>
+      </span>
+    </h3>
+  </div>
+</div>
+
+<% if @ticket.status == "resolved" %>
+  <div class='row'>
+    <div class="well col-md-8 col-md-offset-2">
+      <%= simple_format(@ticket.response) %>
+    </div>
+  </div>
+<% end %>
