@@ -1,3 +1,5 @@
+<!--This section could be broken up into a partial-->
+
 <h2 align="center">Your Tickets</h2>
 
 <div class="row">
@@ -18,7 +20,11 @@
         <td><%= link_to ticket.title, ticket_path(ticket) %></td>
         <td><%= ticket.description.truncate(20) %></td>
         <td><%= ticket.type %></td>
-        <td><%= ticket.status %></td>
+        <td>
+          <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
+            <%= ticket.status %>
+          </span>
+        </td>
         <td><%= ticket.created_at %></td>
       </tr>
       <% end %>
@@ -46,7 +52,11 @@
         <td><%= link_to ticket.title, ticket_path(ticket) %></td>
         <td><%= ticket.description.truncate(20) %></td>
         <td><%= ticket.type %></td>
-        <td><%= ticket.status %></td>
+        <td>
+          <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
+            <%= ticket.status %>
+          </span>
+        </td>
         <td><%= ticket.created_at %></td>
       </tr>
       <% end %>

@@ -1,3 +1,5 @@
+<!--Ticket section can be broken up into a partial for DRY code.-->
+
 <h1 class="text-center">Admin Help Desk</h1>
 
 <h2>All Tickets</h2>
@@ -20,13 +22,17 @@
   <% @tickets.reverse_each do |ticket| %>
     <tr>
       
-      <td><%= link_to "View", edit_ticket_path(ticket), class: "btn btn-success"  %></td>
+      <td><%= link_to "View", edit_ticket_path(ticket), class: "btn btn-primary"  %></td>
       <td><%= ticket.user.username %></td> 
       <td><%= ticket.title %></td>
       <td><%= ticket.description.truncate(20) %></td>
       <td><%= ticket.type %></td>
       <td><%= ticket.priority %></td>
-      <td><%= ticket.status %></td>
+      <td>
+        <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
+          <%= ticket.status %>
+        </span>
+      </td>
       <td><%= ticket.created_at %></td>
       <!--<td></td>-->
       <!--<td>Column One</td>-->
@@ -53,12 +59,16 @@
     <% @tickets.reverse_each do |ticket| %>
       <% if ticket.status == "open" %>
       <tr>
-        <td><%= link_to "View", edit_ticket_path(ticket), class: "btn btn-success"  %></td>
+        <td><%= link_to "View", edit_ticket_path(ticket), class: "btn btn-primary"  %></td>
         <td><%= ticket.user.username %></td> 
         <td><%= ticket.title %></td>
         <td><%= ticket.description.truncate(20) %></td>
         <td><%= ticket.type %></td>
-        <td><%= ticket.status %></td>
+        <td>
+          <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
+            <%= ticket.status %>
+          </span>
+        </td>
         <td><%= ticket.created_at %></td>
       </tr>
       <% end %>
@@ -85,12 +95,16 @@
     <% @tickets.reverse_each do |ticket| %>
       <% if ticket.status == "resolved" %>
       <tr>      
-        <td><%= link_to "View", edit_ticket_path(ticket), class: "btn btn-success"  %></td>
+        <td><%= link_to "View", edit_ticket_path(ticket), class: "btn btn-primary"  %></td>
         <td><%= ticket.user.username %></td> 
         <td><%= ticket.title %></td>
         <td><%= ticket.description.truncate(20) %></td>
         <td><%= ticket.type %></td>
-        <td><%= ticket.status %></td>
+        <td>
+          <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
+            <%= ticket.status %>
+          </span>
+        </td>
         <td><%= ticket.created_at %></td>
       </tr>
       <% end %>
