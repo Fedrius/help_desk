@@ -41,5 +41,37 @@ $(document).ready(function(){
     })
   });
   
+  $("#testButton").click(tester);
   
+  function tester() {
+    // let selectVals = $("#tester").val();
+    let selectVals = document.getElementById('tester');
+    
+    
+    console.log(getSelectedOptions(selectVals));
+  }
+  
+  function getSelectedOptions(sel, fn) {
+    let optsArray = [];
+    let opt = null;
+    
+    // loop through options in select list
+    for (var i=0; i<sel.options.length; i++) {
+      opt = sel.options[i];
+      
+      // check if selected
+      if ( opt.selected ) {
+        // add to array of option elements to return from this function
+        optsArray.push(opt.value);
+        
+        // invoke optional callback function if provided
+        if (fn) {
+          fn(opt);
+        }
+      }
+    }
+    
+    // return array containing references to selected option elements
+    return optsArray;
+  }
 })

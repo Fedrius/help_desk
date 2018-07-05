@@ -105,9 +105,9 @@ padding-left: 0;
 
 }
 
-// **********************************************
+// **********************************************************
 // General Custom CSS
-//***********************************************
+//***********************************************************
 
 .layoutBorder {
   border: 1px solid black;
@@ -165,7 +165,7 @@ th, td {
 }
 
 table, th, td {
-  border: 1px solid #ddd;
+  border: 1px solid #b7b7b7;
 }
 
 th {
@@ -174,4 +174,8 @@ th {
 
 th:hover {
   color: orange;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+    border: 1px solid #b7b7b7;
 }

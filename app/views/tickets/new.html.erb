@@ -5,14 +5,18 @@
 <div class='row'>
   <div class='col-xs-12'>
     <%= form_for(@ticket, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      
       <div class="form-group">
-
-        <div class="col-sm-offset-3 col-sm-6">
-
-          <%= f.text_field :title, class: "form-control", placeholder: "Title", autofocus: true %>
-
+        <div class="col-sm-offset-3 col-sm-2">
+          <label for="sel1">Ticket Type</label>
+          <%= f.select(:issue_type, ['Request', 'Problem','Incident'], {include_blank: "Select"}, {:class => "form-control", :id => "sel1"}) %>
         </div>
-
+      </div>
+      
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-6">
+          <%= f.text_field :title, class: "form-control", placeholder: "Title", autofocus: true %>
+        </div>
       </div>
 
       <div class="form-group">

@@ -57,7 +57,7 @@ class TicketsController < ApplicationController
   private
     # whitelist the input
     def ticket_params
-      params.require(:ticket).permit(:title,:description, :response)
+      params.require(:ticket).permit(:title, :description, :response, :issue_type)
     end
     
     

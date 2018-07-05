@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'help', to: 'pages#help'
   get 'test/admin', to: 'pages#admin'
   get 'test/help_desk', to: 'pages#help_desk'
-  get 'test/admin_user_list', to: 'pages#admin_user_list'
+  # get 'test/admin_user_list', to: 'pages#admin_user_list'
+  
+  get 'tester', to: 'pages#tester'
   
   # /signup route goes to users controller then to new. new will be the html view file
   get 'signup', to: 'users#new'

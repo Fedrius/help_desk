@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180703170302) do
   create_table "tickets", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "type"
+    t.string   "issue_type"
     t.string   "priority",    default: "low"
     t.string   "status",      default: "open"
     t.datetime "created_at"

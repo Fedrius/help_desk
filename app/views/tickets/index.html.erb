@@ -5,62 +5,58 @@
 <div class="row">
   <div class="col-md-12">
     <h2>Open</h2>
-    <table class="table-bordered">
-    <tr>
-      <th>Title</th>
-      <th>Description</th>  
-      <th>Type</th>
-      <th>Status</th>
-      <th>Created At</th>
-    </tr>
-    
-    <% @user_tickets.reverse_each do |ticket| %>
-      <% if ticket.status == "open" %>
+    <table class="table-bordered table-hover">
       <tr>
-        <td><%= link_to ticket.title, ticket_path(ticket) %></td>
-        <td><%= ticket.description.truncate(20) %></td>
-        <td><%= ticket.type %></td>
-        <td>
-          <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
-            <%= ticket.status %>
-          </span>
-        </td>
-        <td><%= ticket.created_at %></td>
+        <th>Title</th>
+        <th>Description</th>  
+        <th>Type</th>
+        <th>Status</th>
+        <th>Created At</th>
       </tr>
+      <% @user_tickets.reverse_each do |ticket| %>
+        <% if ticket.status == "open" %>
+        <tr>
+          <td><%= link_to ticket.title, ticket_path(ticket) %></td>
+          <td><%= ticket.description.truncate(20) %></td>
+          <td><%= ticket.issue_type %></td>
+          <td>
+            <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
+              <%= ticket.status %>
+            </span>
+          </td>
+          <td><%= ticket.created_at %></td>
+        </tr>
+        <% end %>
       <% end %>
-    <% end %>
     </table>
   </div>
 </div>
-
 <div class="row">
   <div class="col-md-12">
     <h2>Resolved</h2>
-
-    <table class="table-bordered">
-    <tr>
-      <th>Title</th>
-      <th>Description</th>  
-      <th>Type</th>
-      <th>Status</th>
-      <th>Created At</th>
-    </tr>
-    
-    <% @user_tickets.reverse_each do |ticket| %>
-      <% if ticket.status == "resolved" %>
+    <table class="table-bordered table-hover">
       <tr>
-        <td><%= link_to ticket.title, ticket_path(ticket) %></td>
-        <td><%= ticket.description.truncate(20) %></td>
-        <td><%= ticket.type %></td>
-        <td>
-          <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
-            <%= ticket.status %>
-          </span>
-        </td>
-        <td><%= ticket.created_at %></td>
+        <th>Title</th>
+        <th>Description</th>  
+        <th>Type</th>
+        <th>Status</th>
+        <th>Created At</th>
       </tr>
+      <% @user_tickets.reverse_each do |ticket| %>
+        <% if ticket.status == "resolved" %>
+        <tr>
+          <td><%= link_to ticket.title, ticket_path(ticket) %></td>
+          <td><%= ticket.description.truncate(20) %></td>
+          <td><%= ticket.issue_type %></td>
+          <td>
+            <span class="<%= ticket.status == "open" ? "bg-danger" : "bg-success" %> ticketStatus">
+              <%= ticket.status %>
+            </span>
+          </td>
+          <td><%= ticket.created_at %></td>
+        </tr>
+        <% end %>
       <% end %>
-    <% end %>
     </table>
   </div>
 </div>
