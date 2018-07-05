@@ -5,23 +5,20 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
   get 'about', to: 'pages#about'
-  
   get 'help', to: 'pages#help'
-  
   get 'test/admin', to: 'pages#admin'
-  
   get 'test/help_desk', to: 'pages#help_desk'
-  
-  resources :tickets
+  get 'test/admin_user_list', to: 'pages#admin_user_list'
   
   # /signup route goes to users controller then to new. new will be the html view file
   get 'signup', to: 'users#new'
+    # because we already made the new route
+  resources :users, except: [:new]
 
   # provides several pre-build routes under articles. do 'rake routes'
   resources :articles
   
-  # because we already made the new route
-  resources :users, except: [:new]
+  resources :tickets
 
   # Login and logout
   get 'login', to: 'sessions#new'
