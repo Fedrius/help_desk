@@ -74,4 +74,27 @@ $(document).ready(function(){
     // return array containing references to selected option elements
     return optsArray;
   }
-})
+  
+  
+  
+  (function switchTicketTables(){
+    $('#tableBtn1').click(function() {
+      $('#allTicketsTable').show();
+      $('#openTicketsTable').hide();
+      $('#closedTicketsTable').hide();
+    })
+    
+    $('#tableBtn2').click(function() {
+      $('#allTicketsTable').hide();
+      $('#openTicketsTable').show();
+      $('#closedTicketsTable').hide();
+    })
+    
+    $('#tableBtn3').click(function() {
+      $('#allTicketsTable').hide();
+      $('#openTicketsTable').hide();
+      $('#closedTicketsTable').show();
+    })
+  })();
+
+});

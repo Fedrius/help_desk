@@ -13,6 +13,10 @@ $test: bold;
 // Navbar
 //***********************************************
 
+#openTicketsTable, #closedTicketsTable {
+  display: none;
+}
+
 .navbar-default .navbar-nav > li > a {
   color: white;
 }
@@ -128,7 +132,7 @@ padding-left: 0;
 }
 
 .sidenav a {
-    padding: 6px 0px 6px 0px;
+    padding: 6px 0px 6px 20px;
     text-decoration: none;
     font-size: 20px;
     color: #818181;
@@ -179,3 +183,4 @@ th:hover {
 .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
     border: 1px solid #b7b7b7;
 }
+
