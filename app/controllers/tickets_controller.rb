@@ -53,18 +53,15 @@ class TicketsController < ApplicationController
   def show
   end
   
-  
   private
     # whitelist the input
     def ticket_params
       params.require(:ticket).permit(:title, :description, :response, :issue_type)
     end
     
-    
     def set_ticket
       @ticket = Ticket.find(params[:id])
     end
-    
     
     def require_same_user
       if current_user != @ticket.user and !current_user.admin?
@@ -72,7 +69,6 @@ class TicketsController < ApplicationController
         redirect_to root_path
       end
     end
-    
     
     def require_admin
       if logged_in? and !current_user.admin?

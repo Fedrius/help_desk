@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
   before_action :require_admin, only: [:destroy]
   
-  
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
   end
@@ -20,7 +19,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "welcome to alpha #{@user.username}"
       redirect_to user_path(@user)
-      
     else
       # refreshes the 'new' route page
       render 'new'
@@ -31,7 +29,6 @@ class UsersController < ApplicationController
   def edit
   end
   
-  
   def update
     if @user.update(user_params)
       flash[:success] = "your account was updated successfully"
@@ -40,7 +37,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
   
   def show
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
@@ -67,7 +63,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username,:email,:password)
     end
-    
     
     def set_user
       @user = User.find(params[:id])
