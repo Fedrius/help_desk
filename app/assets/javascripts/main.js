@@ -57,6 +57,7 @@ function init() {
   }
   
   function getSelectedOptions(sel, fn) {
+    console.log(sel.option);
     let optsArray = [];
     let opt = null;
     
@@ -78,5 +79,57 @@ function init() {
     // return array containing references to selected option elements
     return optsArray;
   }
+  
+  let counter = (function(){
+    var counter = 0;
+    return function () {
+      if(counter === 5) {
+        counter = 0;
+      }
+      
+      counter += 1;
+      return counter
+    }
+  })()
+  
+  reuseTest("testingBtn", "test", "gonna work", "yep i know");
+  
+  function reuseTest(elementId, issue, title, description) {
+    $("#"+elementId).click(function() {
+    document.getElementById(elementId).disabled = true;
+    console.log("start");
+    console.log(0);
+    
+    let timer = setInterval(function() { 
+      console.log(counter());
+    }, 1000);
+    
+    setTimeout(function() {
+      clearInterval(timer)
+      console.log('finished');
+      
+      $.ajax({
+      type: "POST",
+      url: "/tickets",
+      data: { ticket: { issue_type: issue,
+                        title: title, 
+                        description: description }
+        },
+      success: function(data) {
+          console.log(data);
+          console.log('worked')
+          document.getElementById(elementId).disabled = false;
+        },
+      error: function(data) {
+          console.log(data);
+          console.log('error')
+          document.getElementById(elementId).disabled = false;
+        }
+      });
+    }, 5000);
+    })
+  }
+  
+
 }
 

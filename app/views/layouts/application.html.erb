@@ -6,25 +6,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<% if logged_in? and current_user.admin? %>
+  <% if logged_in? and current_user.admin? %>
   <body class="decreaseBodyWidith">
-<% else %>
+  <% else %>
   <body>
-<% end %>
-  <%= render 'layouts/navigation' %>
-  
-  <!--needs to have layouts/ or it will look for the partial in articles-->
- 
-  <!--This is the wrapper for all views-->
+  <% end %>
+  <%= render 'layouts/navigation' %> <!--needs to have layouts/ or it will look for the partial in articles-->
   <div class="container">
     <%= render 'layouts/messages' %>
-  
-    <%= yield %>
+    <%= yield %> <!--This is the wrapper for all views-->
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
   </div>
-  
-  <%= render 'layouts/footer' %>
-  
-  <%= debug(params) if Rails.env.development? %>
-  
 </body>
 </html>
