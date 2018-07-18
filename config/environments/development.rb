@@ -43,8 +43,9 @@ Rails.application.configure do
   
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
+    enable_starttls_auto: true,
     port: 587,
-    domain: "gmail.com",
+    domain: "https://help-desk-fedrius.c9users.io/",
     authentication: "plain",
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
