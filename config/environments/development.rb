@@ -45,11 +45,12 @@ Rails.application.configure do
     address: "smtp.gmail.com",
     enable_starttls_auto: true,
     port: 587,
-    domain: "https://help-desk-fedrius.c9users.io/",
+    domain: "gmail.com",
     authentication: "plain",
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
   }
   
   config.action_mailer.default_url_options = { :host => "https://help-desk-fedrius.c9users.io/"}
+  # config.action_mailer.default_url_options = { :host => "localhost:3000"}
 end
